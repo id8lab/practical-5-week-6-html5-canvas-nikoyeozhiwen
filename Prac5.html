@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My First Canvas</title>
+</head>
+<body onload="drawOnload()">
+<canvas id="mycvs" height="200" width="200"></canvas>
+<script type="text/javascript">
+    var  canvas = document.getElementById("mycvs");
+    var ctx = canvas.getContext("2d");
+    function drawOnload() {
+
+        ctx.fillStyle = "rgb(0,0,255)";
+        ctx.fillRect(20,20,50,100);
+        ctx.fillStyle = "rgba(255,0,0,0.5)";
+        ctx.beginPath()
+        ctx.arc(120,50,10,0,2*Math.PI);
+        ctx.fill();
+        ctx.clearRect(0,0,canvas.weight,canvas.height);
+    }
+    var x=0;
+    var xSpeed=2;
+    function drawRect() {
+        ctx.fillStyle = "rgb(0,0,255)";
+        ctx.fillRect(x,100,10,10);
+    }
+    function update() {
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        drawRect();
+        x += xSpeed;
+    }
+    setInterval(update,1000/60)
+</script>
+
+
+
+</body>
+</html>
